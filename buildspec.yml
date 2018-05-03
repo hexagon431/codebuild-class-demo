@@ -9,6 +9,7 @@ phases:
   post_build:
     commands:
       - echo Yeet
+      - mkdocs serve
 artifacts:
   files:
     - site/**/*

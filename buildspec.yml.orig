@@ -1,0 +1,39 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - pip install mkdocs
+      - pip install awscli
+  build:
+    commands:
+      - mkdocs build
+      - aws s3 cp site s3://belphegor-bucket --recursive
+  post_build:
+    commands:
+      - echo Yeet
+<<<<<<< HEAD
+      
+    
+artifacts:
+  files:
+    - site/**/*
+
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "*"
+        },
+    ]
+    }
+=======
+      - mkdocs serve
+artifacts:
+  files:
+    - site/**/*
+>>>>>>> 61c91ed0ba78c6876d6603728fd78ef12c7fd2f3
